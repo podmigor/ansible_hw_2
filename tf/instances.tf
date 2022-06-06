@@ -74,7 +74,7 @@ resource "google_compute_instance" "ansible-runner" {
       private_key = tls_private_key.test.private_key_openssh
     }
     inline = [
-      "sudo apt-get update && sudo apt-get install -y ansible git",
+      "sudo apt-get update && sudo apt-get install -y ansible git mc",
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*",
     "git clone https://github.com/podmigor/ansible_hw_2.git"]
   }
@@ -121,7 +121,7 @@ resource "google_compute_instance" "ansible-web" {
       private_key = tls_private_key.test.private_key_openssh
     }
     inline = [
-      "sudo apt-get update && sudo apt install git python -y",
+      "sudo apt-get update && sudo apt install git python mc -y",
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {
@@ -166,7 +166,7 @@ resource "google_compute_instance" "ansible-db" {
       private_key = tls_private_key.test.private_key_openssh
     }
     inline = [
-      "sudo apt update && sudo apt install git python -y",
+      "sudo apt update && sudo apt install git python mc -y",
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {
