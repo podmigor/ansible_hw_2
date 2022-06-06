@@ -31,6 +31,8 @@
 - name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
   mysql_user:
     login_unix_socket: /var/run/mysqld/mysqld.sock
+    check_hostname: false
+    host: 10.10.10.101
     name: user
     password: 12345aaa
     priv: '*.*:ALL,GRANT'

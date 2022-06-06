@@ -7,6 +7,7 @@ apache_service: apache2
 
 apache_packages:
   - apache2
+  - mariadb-client
 
 php_packages:
   - php
@@ -19,4 +20,3 @@ mariadb_packages:
   - python3-pymysql
   - python-pymysql
   - mariadb-server
-  - mariadb-client
