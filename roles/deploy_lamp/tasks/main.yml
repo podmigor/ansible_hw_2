@@ -21,3 +21,6 @@
     state: "{{ apache_state }}"
     enabled: "{{ apache_enabled }}"
 
+- git:
+    repo: git@github.com:mylogin/hello.git
+    dest: /home/mylogin/hello
