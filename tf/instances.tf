@@ -120,7 +120,7 @@ resource "google_compute_instance" "ansible-web" {
       private_key = tls_private_key.test.private_key_openssh
     }
     inline = [
-      "sudo apt-get update && sudo apt-get install -y git",
+      "sudo apt-get update && sudo apt-get install git python -y",
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {
@@ -165,7 +165,7 @@ resource "google_compute_instance" "ansible-db" {
       private_key = tls_private_key.test.private_key_openssh
     }
     inline = [
-      "sudo apt-get update && sudo apt-get install -y git",
+      "sudo apt-get update && sudo apt-get install git python -y",
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {
@@ -182,6 +182,6 @@ resource "google_compute_instance" "ansible-db" {
 
 data "google_secret_manager_secret_version" "public_key" {
   secret     = "ssh-key"
-  depends_on = [google_compute_instance.ansible-db, google_compute_instance.ansible-web, google_compute_instance.ansible-runner]
+  depends_on = [google_compute_instance.ansible-runner]
 }
 

@@ -5,14 +5,10 @@ apache_service: apache2
 #apache_server_root: /etc/apache2
 #apache_conf_path: /etc/apache2
 
-__apache_packages:
+apache_packages:
   - apache2
-#  - apache2-utils
 
-__php_packages:
+php_packages:
   - php
   - libapache2-mod-php
-#  - php-gd
   - php-mysql
-
-remote_user: user
