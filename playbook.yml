@@ -1,0 +1,53 @@
+---
+- hosts: all
+  become: yes
+  remote_user: user #replace with yours defined in terraform variable user
+
+  tasks:
+  - name: Ensure ntp (for time synchronization) is installed.
+    apt:
+      name: ntp
+      state: present
+
+
+  - name: Ensure ntp is running.
+    service:
+      name: ntp
+      state: started
+      enabled: yes
+
+
+- hosts: web
+  become: yes
+  remote_user: user #replace with yours defined in terraform variable user
+  roles:
+    - apachephp
+
+#  tasks:
+#  - name: Ensure nginx is installed.
+#    apt:
+#      name: lamp
+#      state: present
+
+#  - name: Ensure nginx is running.
+#    service:
+#      name: nginx
+#      state: started
+#      enabled: yes
+
+
+#- hosts: db
+#  become: yes
+#  remote_user: user #replace with yours defined in terraform variable user
+#
+#  tasks:
+#  - name: Ensure mysql is installed.
+#    apt:
+#      name: default-mysql-server
+#      state: present
+#
+#  - name: Ensure mysql is running.
+#    service:
+#      name: mysql
+#      state: started
+#      enabled: yes
