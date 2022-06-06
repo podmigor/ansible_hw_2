@@ -124,7 +124,7 @@ resource "google_compute_instance" "ansible-web" {
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {
-    ssh-keys = "${var.user}:${file(var.ssh_pub_key)}\n ${var.user}:${tls_private_key.test.public_key_openssh}"
+    ssh-keys = "${var.user}:${file(var.ssh_pub_key)}\n ${var.user}:${tls_private_key.test.public_key_openssh}\n ${var.user}:${data.google_secret_manager_secret_version.public_key.secret_data}"
   }
   metadata_startup_script = "ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N \"\" && gcloud secrets versions add ssh-key --data-file=\"/tmp/sshkey.pub\""
   depends_on = [
@@ -169,7 +169,7 @@ resource "google_compute_instance" "ansible-db" {
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {
-    ssh-keys = "${var.user}:${file(var.ssh_pub_key)}\n ${var.user}:${tls_private_key.test.public_key_openssh}"
+    ssh-keys = "${var.user}:${file(var.ssh_pub_key)}\n ${var.user}:${tls_private_key.test.public_key_openssh}\n ${var.user}:${data.google_secret_manager_secret_version.public_key.secret_data}"
   }
   metadata_startup_script = "ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N \"\" && gcloud secrets versions add ssh-key --data-file=\"/tmp/sshkey.pub\""
   depends_on = [
