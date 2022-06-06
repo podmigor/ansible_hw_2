@@ -16,4 +16,6 @@ php_packages:
 mariadb_service: mysql
 
 mariadb_packages:
+  - python3-pymysql
+  - python-pymysql
   - mariadb-server

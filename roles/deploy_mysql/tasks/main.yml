@@ -16,11 +16,11 @@
     state: "{{ mariadb_state }}"
     enabled: "{{ mariadb_enabled }}"
 
-- name: Removes anonymous user account for localhost
-  mysql_user:
-    name: ''
-    host: localhost
-    state: absent
+#- name: Removes anonymous user account for localhost
+#  mysql_user:
+#    name: ''
+#    host: localhost
+#    state: absent
 
 - name: Create a new database with name 'site'
   mysql_db:
