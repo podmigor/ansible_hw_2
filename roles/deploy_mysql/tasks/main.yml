@@ -40,6 +40,7 @@
   ini_file:
     dest: /etc/mysql/mariadb.conf.d/50-server.cnf
     option: bind-address
+    section: null
     value: 0.0.0.0
     backup: yes
   notify:
