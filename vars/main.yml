@@ -19,3 +19,4 @@ mariadb_packages:
   - python3-pymysql
   - python-pymysql
   - mariadb-server
+  - mariadb-client
