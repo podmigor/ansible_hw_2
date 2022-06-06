@@ -29,3 +29,27 @@
 - git:
     repo: https://github.com/FaztWeb/php-mysql-crud.git
     dest: /var/www/html
+
+- replace:
+    path: /var/www/html/db.php
+    regexp: localhost
+    replace: 10.10.10.102
+    backup: no
+
+- replace:
+    path: /var/www/html/db.php
+    regexp: root
+    replace: user
+    backup: no
+
+- replace:
+    path: /var/www/html/db.php
+    regexp: password123
+    replace: 12345aaa
+    backup: no
+
+- replace:
+    path: /var/www/html/db.php
+    regexp: php_mysql_crud
+    replace: site
+    backup: no
