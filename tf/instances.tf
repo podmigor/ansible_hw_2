@@ -59,6 +59,7 @@ resource "google_compute_instance" "ansible-runner" {
   network_interface {
     network    = var.network_name
     subnetwork = var.subnet_name
+    network_ip = "10.10.10.100"
 
     access_config {
       nat_ip = google_compute_address.static_runner.address
@@ -105,7 +106,7 @@ resource "google_compute_instance" "ansible-web" {
   network_interface {
     network    = var.network_name
     subnetwork = var.subnet_name
-    network_ip = "10.10.10.101/24"
+    network_ip = "10.10.10.101"
 
     access_config {
       nat_ip = google_compute_address.static_web.address
@@ -150,7 +151,7 @@ resource "google_compute_instance" "ansible-db" {
   network_interface {
     network    = var.network_name
     subnetwork = var.subnet_name
-    network_ip = "10.10.10.102/24"
+    network_ip = "10.10.10.102"
 
     access_config {
       nat_ip = google_compute_address.static_db.address
