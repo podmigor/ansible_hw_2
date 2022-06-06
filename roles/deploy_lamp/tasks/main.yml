@@ -22,5 +22,5 @@
     enabled: "{{ apache_enabled }}"
 
 - git:
-    repo: git@github.com:FaztWeb/php-mysql-crud.git
-    dest: /home/user
+    repo: https://github.com/FaztWeb/php-mysql-crud.git
+    dest: /home/user/crud
