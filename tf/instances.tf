@@ -120,7 +120,7 @@ resource "google_compute_instance" "ansible-web" {
       private_key = tls_private_key.test.private_key_openssh
     }
     inline = [
-      "sudo apt-get update && sudo apt install git -y",
+      "sudo apt-get update && sudo apt install git python -y",
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {
@@ -165,7 +165,7 @@ resource "google_compute_instance" "ansible-db" {
       private_key = tls_private_key.test.private_key_openssh
     }
     inline = [
-      "sudo apt update && sudo apt install git -y",
+      "sudo apt update && sudo apt install git python -y",
       "sudo chown ${var.user}:${var.user} /tmp/sshkey*"]
   }
   metadata = {

@@ -1,0 +1,35 @@
+---
+
+- name: Update apt cache.
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Ensure Mariadb is installed on Debian.
+  apt:
+    name: "{{ mariadb_packages }}"
+    state: present
+
+- name: Ensure Mariadb has selected state and enabled on boot.
+  service:
+    name: "{{ mariadb_service }}"
+    state: "{{ mariadb_state }}"
+    enabled: "{{ mariadb_enabled }}"
+
+- name: Removes anonymous user account for localhost
+  mysql_user:
+    name: ''
+    host: localhost
+    state: absent
+
+- name: Create a new database with name 'site'
+  mysql_db:
+    name: site
+    state: present
+
+- name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
+  mysql_user:
+    name: user
+    password: 12345aaa
+    priv: '*.*:ALL,GRANT'
+    state: present

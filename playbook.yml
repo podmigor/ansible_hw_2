@@ -23,7 +23,7 @@
   vars_files:
     - vars/main.yml
   roles:
-    - apachephp
+    - deploy_lamp
 
 #  tasks:
 #  - name: Ensure nginx is installed.
@@ -38,9 +38,12 @@
 #      enabled: yes
 
 
-#- hosts: db
-#  become: yes
-#  remote_user: user #replace with yours defined in terraform variable user
+- hosts: db
+  become: yes
+  remote_user: user #replace with yours defined in terraform variable user
+  roles:
+    - deploy_mysql
+
 #
 #  tasks:
 #  - name: Ensure mysql is installed.

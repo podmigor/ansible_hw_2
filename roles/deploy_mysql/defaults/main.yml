@@ -1,0 +1,6 @@
+---
+
+mariadb_state: started
+
+mariadb_enabled: yes
+
