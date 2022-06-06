@@ -29,6 +29,7 @@
   remote_user: user
   vars_files:
     - vars/main.yml
+    - vars/credentials.yml
   roles:
     - deploy_mysql
 

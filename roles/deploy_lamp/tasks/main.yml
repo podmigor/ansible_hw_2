@@ -45,7 +45,7 @@
 - replace:
     path: /var/www/html/db.php
     regexp: password123
-    replace: 12345aaa
+    replace: "{{ mysqlpass }}"
     backup: no
 
 - replace:
