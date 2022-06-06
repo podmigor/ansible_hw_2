@@ -21,15 +21,11 @@
     state: "{{ apache_state }}"
     enabled: "{{ apache_enabled }}"
 
+- name: Removing
+  file:
+    path: /var/www/html
+    state: absent
+
 - git:
     repo: https://github.com/FaztWeb/php-mysql-crud.git
-    dest: /home/user/crud
-
-- name: Copy file with owner and permissions
-  ansible.builtin.copy:
-    directory_mode: yes
-    src: /home/user/crud
     dest: /var/www/html
-    owner: www-data
-    group: www-data
-    mode: '0644'

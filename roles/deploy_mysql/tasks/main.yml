@@ -35,3 +35,13 @@
     password: 12345aaa
     priv: '*.*:ALL,GRANT'
     state: present
+
+- name: Enable access from web server
+  ini_file:
+    dest: /etc/mysql/my.cnf
+    section: DEFAULT
+    option: bind-address
+    value: 10.10.10.101
+    backup: yes
+  notify:
+  - restart mysql
