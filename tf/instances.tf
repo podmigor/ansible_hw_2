@@ -9,21 +9,7 @@ resource "google_secret_manager_secret" "ssh-key" {
     automatic = true
   }
 }
-/*
-resource "google_secret_manager_secret" "ssh-key1" {
-  secret_id = "ssh-key1"
-  replication {
-    automatic = true
-  }
-}
 
-resource "google_secret_manager_secret" "ssh-key2" {
-  secret_id = "ssh-key2"
-  replication {
-    automatic = true
-  }
-}
-*/
 resource "google_compute_address" "static_runner" {
   name       = "vm-runner-public-address"
   project    = var.project
